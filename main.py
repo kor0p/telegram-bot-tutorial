@@ -11,9 +11,6 @@ bot = TeleBot(BOT_TOKEN)
 connection = psycopg2.connect(DB_URL)
 
 
-users = {}
-
-
 def with_cursor(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
