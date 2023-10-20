@@ -7,7 +7,7 @@ from telebot import TeleBot, types
 
 from config import BOT_TOKEN, DB_URL
 
-bot = TeleBot(BOT_TOKEN)
+bot = TeleBot(BOT_TOKEN, threaded=False)
 connection = psycopg2.connect(DB_URL)
 
 
@@ -71,7 +71,7 @@ def get_user_age(cr: cursor, msg: types.Message):
 
 
 @with_cursor
-def get_user_gender(cr, msg: types.Message):
+def get_user_gender(cr: cursor, msg: types.Message):
     gender = msg.text
 
     if gender not in ('Ч', 'Ж'):

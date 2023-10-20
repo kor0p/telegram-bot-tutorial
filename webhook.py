@@ -11,7 +11,7 @@ from main import bot
 class handler(BaseHTTPRequestHandler):
     server_version = 'WebhookHandler/1.0'
 
-    def do_HEAD(self):
+    def do_GET(self):
         self.send_response(200)
         self.end_headers()
 
@@ -38,7 +38,7 @@ def run_server():
     print('Stopping httpd...\n')
 
 
-if __name__ == '__main__':
+if config.DEV:
     bot.set_webhook(url=config.WEBHOOK_URL)
 
     run_server()
