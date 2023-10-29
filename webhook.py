@@ -38,7 +38,8 @@ def run_server():
     print('Stopping httpd...\n')
 
 
-if config.DEV:
-    bot.set_webhook(url=config.WEBHOOK_URL)
+bot.set_webhook(url=config.WEBHOOK_URL)
 
+
+if config.DEV:
     run_server()
